@@ -11,28 +11,28 @@ module ALUController (
 );
 
   assign Operation[0] = 
-  ((ALUOp == 2'b10) && (Funct3 == 3'b110))  && (FUnct7 == 7'b0000000) ||  // OR
-  ((ALUOp == 2'b10) && (Funct3 == 3'b100))  && (FUnct7 == 7'b0000000) ||  // XOR
-  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (FUnct7 == 7'b0000000) ||  // SRL
-  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (FUnct7 == 7'b0100000) ||  // SRA
+  ((ALUOp == 2'b10) && (Funct3 == 3'b110))  && (Funct7 == 7'b0000000) ||  // OR
+  ((ALUOp == 2'b10) && (Funct3 == 3'b100))  && (Funct7 == 7'b0000000) ||  // XOR
+  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0000000) ||  // SRL
+  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0100000) ||  // SRA
   ((ALUOp == 2'b01) && (Funct3 == 3'b101)) ||    // BLT
   ((ALUOp == 2'b01) && (Funct3 == 3'b001));      // BNE
 
   assign Operation[1] = 
   (ALUOp == 2'b00) ||  // LW\SW (still not clear for me why this is here)
-  ((ALUOp == 2'b10) && (Funct3 == 3'b000))  && (FUnct7 == 7'b0000000) ||  // ADD
-  ((ALUOp == 2'b10) && (Funct3 == 3'b100))  && (FUnct7 == 7'b0000000) ||  // XOR
-  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (FUnct7 == 7'b0000000) ||  // SRA
+  ((ALUOp == 2'b10) && (Funct3 == 3'b000))  && (Funct7 == 7'b0000000) ||  // ADD
+  ((ALUOp == 2'b10) && (Funct3 == 3'b100))  && (Funct7 == 7'b0000000) ||  // XOR
+  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0000000) ||  // SRA
   ((ALUOp == 2'b01) && (Funct3 == 3'b101)) ||    // BGE
   ((ALUOp == 2'b01) && (Funct3 == 3'b001));      // BNE
 
 
   assign Operation[2] =  
-  ((ALUOp == 2'b10) && (Funct3 == 3'b000))  && (FUnct7 == 7'b0000000) ||  // SUB
-  ((ALUOp == 2'b10) && (Funct3 == 3'b001))  && (FUnct7 == 7'b0000000) ||  // SLL
-  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (FUnct7 == 7'b0000000) ||  // SRL
-  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (FUnct7 == 7'b0100000) ||  // SRA
-  ((ALUOp == 2'b10) && (Funct3 == 3'b010))  && (FUnct7 == 7'b0000000);    // SLT
+  ((ALUOp == 2'b10) && (Funct3 == 3'b000))  && (Funct7 == 7'b0000000) ||  // SUB
+  ((ALUOp == 2'b10) && (Funct3 == 3'b001))  && (Funct7 == 7'b0000000) ||  // SLL
+  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0000000) ||  // SRL
+  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0100000) ||  // SRA
+  ((ALUOp == 2'b10) && (Funct3 == 3'b010))  && (Funct7 == 7'b0000000);    // SLT
 
   assign Operation[3] = 
   ((ALUOp == 2'b01) && (Funct3 == 3'b000)) ||  // BEQ
