@@ -17,10 +17,20 @@ module alu#(
             case(Operation)
             4'b0000:        // AND
                     ALUResult = SrcA & SrcB;
+            4'b0001:        // OR
+                    ALUResult = SrcA | SrcB;
             4'b0010:        // ADD
                     ALUResult = SrcA + SrcB;
-            4'b1000:        // Equal
+            4'b0011:        // SUB
+                    ALUResult = SrcA - SrcB;
+            4'b0100:        // SRLI
+                    ALUResult = SrcA >> SrcB;
+            4'b0101:        // SRAI
+                    ALUResult = SrcA >>> $signed(SrcB[4:0]);
+            4'b1000:        // BEQ
                     ALUResult = (SrcA == SrcB) ? 1 : 0;
+            4'b1001:        // BLT
+                    ALUResult = (SrcA < SrcB) ? 1 : 0;
             default:
                     ALUResult = 0;
             endcase
