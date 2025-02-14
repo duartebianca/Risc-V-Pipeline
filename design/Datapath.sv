@@ -225,6 +225,7 @@ module Datapath #(
       B.ImmG,
       B.Branch,
       ALUResult,
+      Halt,
       BrImm,
       Old_PC_Four,
       BrPC,

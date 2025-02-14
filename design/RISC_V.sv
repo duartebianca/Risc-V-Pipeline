@@ -54,6 +54,7 @@ module riscv #(
       MemWrite,
       MemRead,
       Branch,
+      Halt,
       ALUop,
       Operation,
       opcode,
