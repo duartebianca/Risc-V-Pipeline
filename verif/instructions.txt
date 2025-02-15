@@ -4,6 +4,7 @@ add x6,x4,x2
 addi x4,x0,2
 addi x5,x0,-2
 sll x18,x1,x4
+halt
 srl x19,x5,x4
 sra x20,x5,x4
 slt x21,x1,x2
@@ -22,4 +23,3 @@ xori x6,x1,10
 ori x7,x1,2
 andi x8,x1,10
 xor x9,x1,x2
-halt

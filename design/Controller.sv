@@ -20,22 +20,21 @@ module Controller (
     output logic Halt 
 );
 
-  logic [6:0] R_TYPE, I_TYPE, LW, SW, BR, HALT;
+  logic [6:0] R_TYPE, LW, SW, BR, HALT;
 
   assign R_TYPE = 7'b0110011;  //add,and
-  assign I_TYPE = 7'b0010011;  //addi
   assign LW = 7'b0000011;  //lw
   assign SW = 7'b0100011;  //sw
   assign BR = 7'b1100011;  //beq
   assign HALT = 7'b1111111;  
 
-  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == I_TYPE);
+  assign ALUSrc = (Opcode == LW || Opcode == SW);
   assign MemtoReg = (Opcode == LW);
-  assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == I_TYPE);
+  assign RegWrite = (Opcode == R_TYPE || Opcode == LW);
   assign MemRead = (Opcode == LW);
   assign MemWrite = (Opcode == SW);
   assign ALUOp[0] = (Opcode == BR);
-  assign ALUOp[1] = (Opcode == R_TYPE || Opcode == I_TYPE);
+  assign ALUOp[1] = (Opcode == R_TYPE);
   assign Branch = (Opcode == BR);
   assign Halt = (Opcode == HALT); 
 endmodule
