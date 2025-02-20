@@ -11,19 +11,22 @@ module ALUController (
 );
 
   assign Operation[0] = (
-    ( (ALUOp == 2'b10) && (Funct3 == 3'b010) && (Funct7 == 7'b0000000) ) // R-type: SLT
+    ( (ALUOp == 2'b10) && (Funct3 == 3'b010) && (Funct7 == 7'b0000000) ) || // R-type: SLT
+    ( (ALUOp == 2'b11) && (Funct3 == 3'b010) )                              // I-type: SLTI
   );
 
   assign Operation[1] = (
     ( ALUOp == 2'b00 ) ||                           // STORE + LOAD
     ( ALUOp == 2'b01 ) ||                           // BRANCH
     ( (ALUOp == 2'b10) && (Funct3 == 3'b000) ) ||   // R-type: ADD
-    ( (ALUOp == 2'b10) && (Funct3 == 3'b010) )      // R-type: SLT 
+    ( (ALUOp == 2'b10) && (Funct3 == 3'b010) ) ||   // R-type: SLT 
+    ( (ALUOp == 2'b11) && (Funct3 == 3'b010) )      // I-type: SLTI
   );
 
   assign Operation[2] = (
     ( ALUOp == 2'b01 ) ||                                                   // BRANCH
-    ( (ALUOp == 2'b10) && (Funct3 == 3'b010) && (Funct7 == 7'b0000000) )    // R-type: SLT
+    ( (ALUOp == 2'b10) && (Funct3 == 3'b010) && (Funct7 == 7'b0000000) ) || // R-type: SLT
+    ( (ALUOp == 2'b11) && (Funct3 == 3'b010) )                              // I-type: SLTI
   );
 
   assign Operation[3] = 0;
