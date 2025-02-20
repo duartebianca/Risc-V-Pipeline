@@ -22,7 +22,7 @@ module ALUController (
   (ALUOp == 2'b00) ||  // LW\SW (still not clear for me why this is here)
   ((ALUOp == 2'b10) && (Funct3 == 3'b000))  && (Funct7 == 7'b0000000) ||  // ADD
   ((ALUOp == 2'b10) && (Funct3 == 3'b100))  && (Funct7 == 7'b0000000) ||  // XOR
-  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0000000) ||  // SRA
+  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0100000) ||  // SRA
   ((ALUOp == 2'b01) && (Funct3 == 3'b101)) ||    // BGE
   ((ALUOp == 2'b01) && (Funct3 == 3'b001));      // BNE
 
