@@ -42,6 +42,7 @@ module Datapath #(
   logic [INS_W-1:0] Instr;
   logic [DATA_W-1:0] Reg1, Reg2;
   logic [DATA_W-1:0] ReadData;
+  logic [DATA_W-1:0] WrittenData;
   logic [DATA_W-1:0] SrcB, ALUResult;
   logic [DATA_W-1:0] ExtImm, BrImm, Old_PC_Four, BrPC;
   logic [DATA_W-1:0] WrmuxSrc;
@@ -269,13 +270,14 @@ module Datapath #(
       C.Alu_Result[8:0],
       C.RD_Two,
       C.func3,
-      ReadData
+      ReadData,
+      WrittenData
   );
 
   assign wr = C.MemWrite;
   assign reade = C.MemRead;
   assign addr = C.Alu_Result[8:0];
-  assign wr_data = C.RD_Two;
+  assign wr_data = WrittenData;
   assign rd_data = ReadData;
 
   // MEM_WB_Reg D;
