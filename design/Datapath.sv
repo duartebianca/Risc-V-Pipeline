@@ -13,6 +13,7 @@ module Datapath #(
     input  logic                 clk,
     reset,
     Halt,
+    Jump,
     RegWrite,
     MemtoReg,  // Register file writing enable   // Memory or ALU MUX
     ALUsrc,
@@ -27,9 +28,9 @@ module Datapath #(
     output logic [          1:0] ALUOp_Current,
     output logic [   DATA_W-1:0] WB_Data,        //Result After the last MUX
 
-    // Para depuração no tesbench:
-    output logic [4:0] reg_num,  //número do registrador que foi escrito
-    output logic [DATA_W-1:0] reg_data,  //valor que foi escrito no registrador
+    
+    output logic [4:0] reg_num,  
+    output logic [DATA_W-1:0] reg_data,  
     output logic reg_write_sig,  //sinal de escrita no registrador
 
     output logic wr,  // write enable
@@ -143,6 +144,7 @@ module Datapath #(
       B.ALUOp <= 0;
       B.Branch <= 0;
       B.Halt <= 0;
+      B.Jump <= 0;
       B.Curr_Pc <= 0;
       B.RD_One <= 0;
       B.RD_Two <= 0;
@@ -162,6 +164,7 @@ module Datapath #(
       B.ALUOp <= ALUOp;
       B.Branch <= Branch;
       B.Halt <= Halt;
+      B.Jump <= Jump;
       B.Curr_Pc <= A.Curr_Pc;
       B.RD_One <= Reg1;
       B.RD_Two <= Reg2;
@@ -226,6 +229,7 @@ module Datapath #(
       B.Branch,
       ALUResult,
       Halt,
+      B.Jump,
       BrImm,
       Old_PC_Four,
       BrPC,
@@ -242,6 +246,7 @@ module Datapath #(
       C.MemWrite <= 0;
       C.Pc_Imm <= 0;
       C.Pc_Four <= 0;
+      C.Jump <= 0;
       C.Imm_Out <= 0;
       C.Alu_Result <= 0;
       C.RD_Two <= 0;
@@ -255,6 +260,7 @@ module Datapath #(
       C.MemWrite <= B.MemWrite;
       C.Pc_Imm <= BrImm;
       C.Pc_Four <= Old_PC_Four;
+      C.Jump <= B.Jump;
       C.Imm_Out <= B.ImmG;
       C.Alu_Result <= ALUResult;
       C.RD_Two <= FBmux_Result;
@@ -290,6 +296,7 @@ module Datapath #(
       D.MemtoReg <= 0;
       D.Pc_Imm <= 0;
       D.Pc_Four <= 0;
+      D.Jump <= 0;
       D.Imm_Out <= 0;
       D.Alu_Result <= 0;
       D.MemReadData <= 0;
@@ -299,6 +306,7 @@ module Datapath #(
       D.MemtoReg <= C.MemtoReg;
       D.Pc_Imm <= C.Pc_Imm;
       D.Pc_Four <= C.Pc_Four;
+      D.Jump <= C.Jump;
       D.Imm_Out <= C.Imm_Out;
       D.Alu_Result <= C.Alu_Result;
       D.MemReadData <= ReadData;
