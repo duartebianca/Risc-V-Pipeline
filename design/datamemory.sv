@@ -36,10 +36,15 @@ module datamemory #(
 
     if (MemRead) begin
       case (Funct3)
-        3'b010:  //LW
+        3'b010: begin //LW
         rd <= Dataout;
+	end
+	3'b000: begin //LB
+	rd  <= $signed(Dataout[7:0]);
+	end
         default: rd <= Dataout;
       endcase
+
     end else if (MemWrite) begin
       case (Funct3)
         3'b010: begin  //SW
