@@ -8,6 +8,7 @@ module BranchUnit #(
     input logic Branch,
     input logic [31:0] AluResult,
     input logic Halt,
+    input logic Jump,
     output logic [31:0] PC_Imm,
     output logic [31:0] PC_Four,
     output logic [31:0] BrPC,
@@ -17,19 +18,16 @@ module BranchUnit #(
   logic Branch_Sel;
   logic [31:0] PC_Full;
 
-  // extend the PC to 32 bits
   assign PC_Full = {23'b0, Cur_PC};
 
-  // possible addresses of the next instruction
-  assign PC_Imm = PC_Full + Imm;     // branch -> PC+Imm
-  assign PC_Four = PC_Full + 32'b100;// PC+4
+  assign PC_Imm = PC_Full + Imm;    
+  assign PC_Four = PC_Full + 32'b100;
+  assign Branch_Sel = (Branch && AluResult[0]); 
 
-  assign Branch_Sel = (Halt) ? 1'b1: (Branch && AluResult[0]);  // 0:Branch is taken; 1:Branch is not taken
-
-  // if halt is active, the next instruction is the current PC
-  // else if branch is taken, the next instruction is PC+Imm
-  // else the next instruction is PC+4
-  assign BrPC = (Halt) ? PC_Full : ((Branch_Sel) ? PC_Imm : 32'b0);   
-  assign PcSel = Branch_Sel;  // 1:branch is taken; 0:branch is not taken(choose pc+4)
-
-endmodule
+  assign BrPC = (Branch_Sel || Jump) ? PC_Imm : ((Halt) ? PC_Full : 0);   
+  assign PcSel = Branch_Sel || Halt || Jump;    
+  /*always @(*) begin
+      $display("Time: %0t | PC_Imm: %b", 
+               $time, PC_Imm[12:0]);
+  end*/
+  endmodule
