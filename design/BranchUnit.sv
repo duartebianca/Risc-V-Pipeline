@@ -23,12 +23,12 @@ module BranchUnit #(
   //JalType == Jalr? if so then PC_Full + Imm, if not then AluResult --> ((rs1 + offset) & ~1) [Target Address]
   assign PC_Imm = (JalrSel) ? AluResult : $signed(PC_Full) + $signed(Imm);
 
-
+  //PC+4
   assign PC_Four = PC_Full + 32'b100;
   //Branch taken if Alu signal equals one or Jalr
   assign Branch_Sel = (Branch && AluResult[0]) || (JalrSel || Jump);  // 0:Branch is taken; 1:Branch is not taken
 
   assign BrPC = (Branch_Sel) ? PC_Imm : 32'b0;  // Branch -> PC+Imm   // Otherwise, BrPC value is not important
-  assign PcSel = Branch_Sel || (JalrSel || Jump);  // 1:branch is taken; 0:branch is not taken(choose pc+4)
+  assign PcSel = Branch_Sel;  // 1:branch is taken (choose BrPC); 0:branch is not taken(choose pc+4)
 
 endmodule

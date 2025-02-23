@@ -11,7 +11,7 @@ cModel Technology
 Z0 dC:/Users/jaube/OneDrive/Documentos/Projeto/Risc-V-Pipeline/verif
 vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1740275979
+Z2 !s110 1740286609
 !i10b 1
 !s100 J@Bf42a<9Q9R;nJSZl2>B2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1740275979.000000
+Z8 !s108 1740286609.000000
 !s107 ./tb_top.sv|./../design/RISC_V.sv|./../design/Datapath.sv|./../design/instructionmemory.sv|./../design/datamemory.sv|./../design/mux4.sv|./../design/mux2.sv|./../design/imm_Gen.sv|./../design/HazardDetection.sv|./../design/ForwardingUnit.sv|./../design/flopr.sv|./../design/Controller.sv|./../design/BranchUnit.sv|./../design/ALUController.sv|./../design/alu.sv|./../design/RegFile.sv|./../design/RegPack.sv|./../design/Memoria32Data.sv|./../design/Memoria32.sv|./../design/ramOnChipData.v|./../design/ramOnChip32.v|./../design/adder.sv|
 Z9 !s90 -reportprogress|300|-f|compile_verilog|
 !i113 1
@@ -43,7 +43,7 @@ Ii;?RzbaTF@YYO`6hI?6jj1
 R4
 S1
 R0
-w1740252961
+w1740281757
 8./../design/alu.sv
 F./../design/alu.sv
 !i122 0
@@ -61,13 +61,13 @@ vALUController
 R1
 R2
 !i10b 1
-!s100 YhNQVU^L5Bnlb[XnTkOE=0
+!s100 9R;K4G^6GCLC?<=iHBY2S3
 R3
-IK_J>^]`U`YQe?MA:MC]?30
+IO9o<8Xi;[<:l8WTmD;H2L0
 R4
 S1
 R0
-w1740252960
+w1740283877
 8./../design/ALUController.sv
 F./../design/ALUController.sv
 !i122 0
@@ -92,7 +92,7 @@ I^@6N??<5C_;U1z><4SY[F1
 R4
 S1
 R0
-w1740272787
+w1740285128
 8./../design/BranchUnit.sv
 F./../design/BranchUnit.sv
 !i122 0
@@ -111,13 +111,13 @@ vController
 R1
 R2
 !i10b 1
-!s100 kVgBU_RneiF4:Ni^B9SOz2
+!s100 C>oXSS6RggN71>168zdV?3
 R3
-IB;^HARe^feXHKCPE0=8CE3
+I5:TT2Lflb0^JcE1E3`6>[3
 R4
 S1
 R0
-w1740270492
+w1740284127
 8./../design/Controller.sv
 F./../design/Controller.sv
 !i122 0
@@ -165,12 +165,12 @@ R4
 r1
 !s85 0
 !i10b 1
-!s100 ITQ^aHhV=JIC:^1>S_UkW0
-IRdS?MnVIenZ^bJAJiOf8]3
+!s100 ha6Am3h?nf5T=G@3dn=_h0
+I:LHX805R6H0D]9oj[>X=O0
 !s105 Datapath_sv_unit
 S1
 R0
-Z13 w1740275215
+Z13 w1740286606
 Z14 8./../design/Datapath.sv
 Z15 F./../design/Datapath.sv
 !i122 0

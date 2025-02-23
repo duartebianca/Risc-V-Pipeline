@@ -239,12 +239,12 @@ module Datapath #(
       PcSel
   );
 
-  mux2 #(32) JumpMux (
-      ALUResult,
-      Old_PC_Four,
-      PcSel,
-      EXResult
-  );
+    mux2 #(32) JumpMux (
+        ALUResult,
+        Old_PC_Four,
+        PcSel,
+        EXResult
+    );
 
   // EX_MEM_Reg C;
   always @(posedge clk) begin
