@@ -19,6 +19,7 @@ module BranchUnit #(
   logic Branch_Sel;
   logic [31:0] PC_Full;
 
+  // extend the PC to 32 bits
   assign PC_Full = {23'b0, Cur_PC};
 
   //JalType == Jalr? if so then PC_Full + Imm, if not then AluResult --> ((rs1 + offset) & ~1) [Target Address]

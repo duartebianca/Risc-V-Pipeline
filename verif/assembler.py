@@ -331,7 +331,7 @@ def translate_instruction(instruction):
 		rs2 = bin(int(rs2[1:]))[2:].zfill(5)
 
 		binary = funct7[instr] + rs2 + rs1 + funct3[instr] + rd + opcode[instr]
-
+	
 	return binary
 
 
