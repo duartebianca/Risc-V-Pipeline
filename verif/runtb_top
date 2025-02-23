@@ -7,12 +7,22 @@ vsim -gui -L altera_mf_ver work.tb_top
 add wave -position end sim:/tb_top/riscV/DATA_W
 add wave -position end sim:/tb_top/riscV/clk
 add wave -position end sim:/tb_top/riscV/reset
+add wave -position end sim:/tb_top/riscV/dp/Reg_Stall
 add wave -position end sim:/tb_top/riscV/dp/instr_mem/rd
 add wave -position end sim:/tb_top/riscV/dp/B.RS_One
 add wave -position end sim:/tb_top/riscV/dp/B.RS_Two
 add wave -position end sim:/tb_top/riscV/dp/B.rd
+add wave -position end sim:/tb_top/riscV/dp/B.JalrSel
+add wave -position end sim:/tb_top/riscV/dp/B.Jump
+add wave -position end sim:/tb_top/riscV/dp/B.Curr_Pc
+add wave -position end sim:/tb_top/riscV/dp/B.ImmG
+add wave -position end sim:/tb_top/riscV/dp/PcSel
+add wave -position end sim:/tb_top/riscV/dp/Next_PC
 add wave -position end sim:/tb_top/riscV/dp/PC
+add wave -position end sim:/tb_top/riscV/dp/ALUResult
+add wave -position end sim:/tb_top/riscV/dp/EXResult
 add wave -position end sim:/tb_top/riscV/dp/Instr
+add wave -position end sim:/tb_top/riscV/dp/D.rd
 add wave -position end sim:/tb_top/riscV/WB_Data
 add wave -position end sim:/tb_top/riscV/dp/rf/register_file
 add wave -position end sim:/tb_top/riscV/opcode
@@ -30,11 +40,17 @@ add wave -position end sim:/tb_top/riscV/Operation
 add wave -position end sim:/tb_top/riscV/dp/data_mem/*
 
 radix signal sim:/tb_top/riscV/dp/instr_mem/rd hexadecimal
+radix signal sim:/tb_top/riscV/dp//B.Curr_Pc unsigned
+radix signal sim:/tb_top/riscV/dp//B.ImmG unsigned
+radix signal sim:/tb_top/riscV/dp/Next_PC unsigned
 radix signal sim:/tb_top/riscV/dp/PC unsigned
+radix signal sim:/tb_top/riscV/dp/ALUResult unsigned
+radix signal sim:/tb_top/riscV/dp/EXResult unsigned
 radix signal sim:/tb_top/riscV/dp/Instr hexadecimal
 radix signal sim:/tb_top/riscV/dp/B.RS_One unsigned
 radix signal sim:/tb_top/riscV/dp/B.RS_Two unsigned
 radix signal sim:/tb_top/riscV/dp/B.rd unsigned
+radix signal sim:/tb_top/riscV/dp/D.rd unsigned
 radix signal sim:/tb_top/riscV/WB_Data hexadecimal
 radix signal sim:/tb_top/riscV/dp/rf/register_file[31] hexadecimal
 radix signal sim:/tb_top/riscV/dp/rf/register_file[30] hexadecimal

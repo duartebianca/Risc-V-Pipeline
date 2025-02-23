@@ -217,7 +217,7 @@ def translate_instruction(instruction):
 	if parts[0] == "halt":
 		return "0" * 25 + opcode["halt"]  
 
-	instr = parts[0] 
+	instr = parts[0]
 
 	rd = instruction.split(" ")[1].split(",")[0]
 	rd = bin(int(rd[1:]))[2:].zfill(5)
