@@ -26,17 +26,17 @@ module Controller (
 
     logic [6:0] R_TYPE, LW, SW, BR, I_TYPE,  JAL, JALR, HALT;
 
-  assign R_TYPE = 7'b0110011;  // xor, sub, slt, or
-  assign LW = 7'b0000011;  // lb, lh, lbu 
-  assign SW = 7'b0100011;  // sh, sb
-  assign BR = 7'b1100011;  // bne, blt, bge, 
-  assign I_TYPE = 7'b0010011;  // addi, slti, slli, srli, srai
+  assign R_TYPE = 7'b0110011;  // add, and, xor
+  assign LW = 7'b0000011;  // lw, lb
+  assign SW = 7'b0100011;  // sw
+  assign BR = 7'b1100011;  // beq
+  assign I_TYPE = 7'b0010011;  // addi
   assign JAL  = 7'b1101111; // jal 
   assign JALR = 7'b1100111;  //jalr
   assign HALT = 7'b1111111;  // halt
 
   //goes to ALU src mux
-  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == I_TYPE || Opcode == JALR);
+  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == I_TYPE|| Opcode == JALR);
 
   assign MemtoReg = (Opcode == LW);
   // saves PC+4 for JAL and JALR
@@ -46,7 +46,7 @@ module Controller (
 
   //goes to ALUController to decide which operation
   assign ALUOp[0] = (Opcode == BR);
-  assign ALUOp[1] = (Opcode == I_TYPE || Opcode == R_TYPE);
+  assign ALUOp[1] = (Opcode == I_TYPE || Opcode == R_TYPE || Opcode == JAL|| Opcode == JALR);
   
   assign Branch = (Opcode == BR);
   assign JalrSel = (Opcode == JALR); // jal or jalr

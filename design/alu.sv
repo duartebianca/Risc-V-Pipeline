@@ -34,13 +34,13 @@ module alu#(
             4'b1000:        // BEQ
                     ALUResult = (SrcA == SrcB) ? 1 : 0;
             4'b1001:        // BLT
-                    ALUResult = (SrcA < SrcB) ? 1 : 0;
+                    ALUResult = ($signed(SrcA) < $signed(SrcB)) ? 1 : 0;
             4'b1010:        // BGE
-                    ALUResult = (SrcA >= SrcB) ? 1 : 0;
+                    ALUResult = ($signed(SrcA) >= $signed(SrcB)) ? 1 : 0;
             4'b1011:        // BNE
                     ALUResult = (SrcA != SrcB) ? 1 : 0;
-            4'b1100:        // SLTI
-                    ALUResult = (SrcA < SrcB) ? 1 : 0;
+            4'b1100:        // SLT, SLIT
+                    ALUResult = ($signed(SrcA) < $signed(SrcB)) ? 1 : 0;
         //  4'b1101:        // ?
         //          ALUResult = 0;
         //  4'b1110:        // ?
