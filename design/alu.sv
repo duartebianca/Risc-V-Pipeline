@@ -17,12 +17,31 @@ module alu#(
             case(Operation)
             4'b0000:        // AND
                     ALUResult = SrcA & SrcB;
+            4'b0001:        // OR
+                    ALUResult = SrcA | SrcB;
+            4'b0011:        // XOR
+                        ALUResult = SrcA ^ SrcB;
             4'b0010:        // ADD
-                    ALUResult = SrcA + SrcB;
-            4'b0110:        // EQUAL
-                    ALUResult = (SrcA == SrcB) ? 1 : 0;
-            4'b0111:        // LESS THAN
+                    ALUResult = $signed(SrcA) + $signed(SrcB);
+            4'b0100:        // SLLI
+                    ALUResult = SrcA << SrcB;
+            4'b0101:        // SRLI
+                    ALUResult = SrcA >> SrcB;
+            4'b0110:        // SUB
+                    ALUResult = $signed(SrcA) - $signed(SrcB);
+            4'b0111:        // SRAI
+                    ALUResult = $signed(SrcA) >>> SrcB[4:0];
+            4'b0111:        // SLT, SLTI
                     ALUResult = (SrcA < SrcB) ? 1 : 0;
+            4'b1000:        // BEQ
+                    ALUResult = (SrcA == SrcB) ? 1 : 0;
+            4'b1001:        // BLT
+                    ALUResult = (SrcA < SrcB) ? 1 : 0;
+            4'b1011:        // BNE
+                    ALUResult = (SrcA != SrcB) ? 1 : 0;
+            4'b1010:        // BGE
+                    ALUResult = (SrcA >= SrcB) ? 1 : 0;
+                    
             default:
                     ALUResult = 0;
             endcase
