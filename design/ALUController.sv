@@ -16,19 +16,19 @@ module ALUController (
   ((ALUOp == 2'b10) && (Funct3 == 3'b110))  && (Funct7 == 7'b0000000) ||  // OR
   ((ALUOp == 2'b10) && (Funct3 == 3'b100))  && (Funct7 == 7'b0000000) ||  // XOR
   ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0000000) ||  // SRL
-  ((ALUOp == 2'b01) && (Funct3 == 3'100)) ||    // BLT
+  ((ALUOp == 2'b01) && (Funct3 == 3'b100)) ||    // BLT
   ((ALUOp == 2'b01) && (Funct3 == 3'b001)) ||    // BNE
   ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0100000) ||  // SRAI
   ((ALUOp == 2'b11) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000));  // R\I->>>
 
   assign Operation[1] = 
-  (ALUOp == 2'b00) ||  // LW\SW (still not clear for me why this is here)
+  (ALUOp == 2'b00) ||  // LW\SW 
   ((ALUOp == 2'b10) && (Funct3 == 3'b000))  && (Funct7 != 7'b0100000) ||  // ADD
   ((ALUOp == 2'b10) && (Funct3 == 3'b000))  && (Funct7 != 7'b0100000) ||  // ADDI
   ((ALUOp == 2'b10) && (Funct3 == 3'b100))  && (Funct7 == 7'b0000000) ||  // XOR
   ((ALUOp == 2'b01) && (Funct3 == 3'b101)) ||    // BGE
   ((ALUOp == 2'b01) && (Funct3 == 3'b001)) ||      // BNE 
-  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0000000) ||  // SRAI
+  ((ALUOp == 2'b10) && (Funct3 == 3'b101))  && (Funct7 == 7'b0100000) ||  // SRAI
   ((ALUOp == 2'b11) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000));    // R\I->>>
 
 

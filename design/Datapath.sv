@@ -12,6 +12,7 @@ module Datapath #(
 ) (
     input  logic                 clk,
     reset,
+    Halt,
     RegWrite,
     MemtoReg,  // Register file writing enable   // Memory or ALU MUX
     ALUsrc,
@@ -147,6 +148,7 @@ module Datapath #(
       B.ALUOp <= 0;
       B.Branch <= 0;
       B.JalrSel <= 0;
+      B.Halt <= 0;
       B.Jump <= 0;
       B.Curr_Pc <= 0;
       B.RD_One <= 0;
@@ -166,6 +168,7 @@ module Datapath #(
       B.MemWrite <= MemWrite;
       B.ALUOp <= ALUOp;
       B.Branch <= Branch;
+      B.Halt <= Halt;
       B.JalrSel <= JalrSel;
       B.Jump <= Jump;
       B.Curr_Pc <= A.Curr_Pc;
@@ -233,6 +236,7 @@ module Datapath #(
       B.JalrSel,
       B.Jump,
       ALUResult,
+      Halt,
       BrImm,
       Old_PC_Four,
       BrPC,

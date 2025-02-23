@@ -19,7 +19,7 @@ module riscv #(
 );
 
   logic [6:0] opcode;
-  logic ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch;
+  logic ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, Halt;
   logic [1:0] ALUop;
   logic JalrSel;
   logic Jump;
@@ -37,6 +37,7 @@ module riscv #(
       MemWrite,
       ALUop,
       Branch,
+      Halt,
       JalrSel,
       Jump
   );
@@ -51,6 +52,7 @@ module riscv #(
   Datapath dp (
       clk,
       reset,
+      Halt,
       RegWrite,
       MemtoReg,
       ALUSrc,

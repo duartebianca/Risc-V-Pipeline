@@ -17,13 +17,14 @@ module Controller (
     output logic MemWrite, //Data memory contents designated by the address input are replaced by the value on the Write data input.
     output logic [1:0] ALUOp,  //00: LW/SW; 01:Branch; 10: Rtype
     output logic Branch,  //0: branch is not taken; 1: branch is taken
+    output logic Halt,
     output logic  JalrSel,
     output logic  Jump
 
 
 );
 
-    logic [6:0] R_TYPE, LW, SW, BR, I_TYPE,  JAL, JALR;
+    logic [6:0] R_TYPE, LW, SW, BR, I_TYPE,  JAL, JALR, HALT;
 
   assign R_TYPE = 7'b0110011;  // add, and, xor
   assign LW = 7'b0000011;  // lw, lb
@@ -32,6 +33,7 @@ module Controller (
   assign I_TYPE = 7'b0010011;  // addi
   assign JAL  = 7'b1101111; // jal 
   assign JALR = 7'b1100111;  //jalr
+  assign HALT = 7'b1111111;  // halt
 
   //goes to ALU src mux
   assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == I_TYPE|| Opcode == JALR);
@@ -49,6 +51,7 @@ module Controller (
   assign Branch = (Opcode == BR);
   assign JalrSel = (Opcode == JALR); // jal or jalr
   assign Jump = (Opcode == JAL); // jal or jalr
+  assign Halt = (Opcode == HALT);
 
 
 
