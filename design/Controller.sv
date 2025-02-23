@@ -46,7 +46,7 @@ module Controller (
 
   //goes to ALUController to decide which operation
   assign ALUOp[0] = (Opcode == BR);
-  assign ALUOp[1] = (Opcode == I_TYPE || Opcode == R_TYPE || Opcode == JAL|| Opcode == JALR);
+  assign ALUOp[1] = (Opcode == I_TYPE || Opcode == R_TYPE);
   
   assign Branch = (Opcode == BR);
   assign JalrSel = (Opcode == JALR); // jal or jalr
