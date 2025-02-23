@@ -9,6 +9,7 @@ module BranchUnit #(
     input logic JalrSel,
     input logic Jump,
     input logic [31:0] AluResult,
+    input logic Halt,
     output logic [31:0] PC_Imm,
     output logic [31:0] PC_Four,
     output logic [31:0] BrPC,
@@ -26,9 +27,9 @@ module BranchUnit #(
   //PC+4
   assign PC_Four = PC_Full + 32'b100;
   //Branch taken if Alu signal equals one or Jalr
-  assign Branch_Sel = (Branch && AluResult[0]) || (JalrSel || Jump);  // 0:Branch is taken; 1:Branch is not taken
+  assign Branch_Sel = (Halt) ? 1'b1 : ((Branch && AluResult[0]) || (JalrSel || Jump));  // 0:Branch is taken; 1:Branch is not taken
 
-  assign BrPC = (Branch_Sel) ? PC_Imm : 32'b0;  // Branch -> PC+Imm   // Otherwise, BrPC value is not important
-  assign PcSel = Branch_Sel;  // 1:branch is taken (choose BrPC); 0:branch is not taken(choose pc+4)
+  assign BrPC = (Halt) ? PC_Full : ((Branch_Sel) ? PC_Imm : 32'b0);  // Branch -> PC+Imm   // Otherwise, BrPC value is not important
+  assign PcSel = Branch_Sel || (JalrSel || Jump);  // 1:branch is taken; 0:branch is not taken(choose pc+4)
 
 endmodule
