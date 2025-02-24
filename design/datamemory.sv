@@ -38,6 +38,12 @@ module datamemory #(
       case (Funct3)
         3'b000: begin //LB
           rd  <= $signed(Dataout[7:0]);
+          /*
+          pode funcionar essa variação também
+          Wr <= 4'b0001;
+          rd[31:0] <= {{24{Dataout[7]}}, Dataout[7:0]};
+          raddress[31:0] <= {23'b0, a};
+          */
         end
         3'b001: begin //LH
            rd <= $signed(Dataout[15:0]);
