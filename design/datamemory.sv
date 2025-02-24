@@ -62,10 +62,12 @@ module datamemory #(
         3'b000: begin // SB
           Wr = 4'b0001;
           Datain <= wd;
+          //  Datain[7:0] <= wd;
         end
         3'b001: begin // SH
           Wr = 4'b0011;
           Datain <= wd;
+          //  Datain[15:0] <= wd;
         end
         3'b010: begin  // SW
           Wr = 4'b1111;
