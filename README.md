@@ -20,26 +20,26 @@ Seu objetivo é implementar as instruções restantes listadas abaixo:
 
 | # | Instrução | Implementada | Testada | Funcionando |
 |---|-----------|:-----------:|:-------:|:-----------:|
-| 1  | `JAL`     |      ❌     |    ❌    |      ❌      |
-| 2  | `JALR`    |      ❌     |    ❌    |      ❌      |
-| 3  | `BNE`     |      ❌     |    ❌    |      ❌      |
-| 4  | `BLT`     |      ❌     |    ❌    |      ❌      |
-| 5  | `BGE`     |      ❌     |    ❌    |      ❌      |
-| 6  | `LB`      |      ❌     |    ❌    |      ❌      |
-| 7  | `LH`      |      ❌     |    ❌    |      ❌      |
-| 8  | `LBU`     |      ❌     |    ❌    |      ❌      |
-| 9  | `SB`      |      ❌     |    ❌    |      ❌      |
-| 10 | `SH`      |      ❌     |    ❌    |      ❌      |
-| 11 | `SLTI`    |      ❌     |    ❌    |      ❌      |
-| 12 | `ADDI`    |      ❌     |    ❌    |      ❌      |
-| 13 | `SLLI`    |      ❌     |    ❌    |      ❌      |
-| 14 | `SRLI`    |      ❌     |    ❌    |      ❌      |
-| 15 | `SRAI`    |      ❌     |    ❌    |      ❌      |
-| 16 | `SUB`     |      ❌     |    ❌    |      ❌      |
-| 17 | `SLT`     |      ❌     |    ❌    |      ❌      |
-| 18 | `XOR`     |      ❌     |    ❌    |      ❌      |
-| 19 | `OR`      |      ❌     |    ❌    |      ❌      |
-| 20 | `HALT`    |      ❌     |    ❌    |      ❌      |
+| 1  | `JAL`     |      ✅     |    ✅    |      ✅      |
+| 2  | `JALR`    |      ✅     |    ✅    |      ✅      |
+| 3  | `BNE`     |      ✅     |    ✅    |      ✅      |
+| 4  | `BLT`     |      ✅     |    ✅    |      ✅      |
+| 5  | `BGE`     |      ✅     |    ✅    |      ✅      |
+| 6  | `LB`      |      ✅     |    ✅    |      ✅      |
+| 7  | `LH`      |      ✅     |    ✅    |      ✅      |
+| 8  | `LBU`     |      ✅     |    ✅    |      ✅      |
+| 9  | `SB`      |      ✅     |    ✅    |      ✅      |
+| 10 | `SH`      |      ✅     |    ✅    |      ✅      |
+| 11 | `SLTI`    |      ✅     |    ✅    |      ✅      |
+| 12 | `ADDI`    |      ✅     |    ✅    |      ✅      |
+| 13 | `SLLI`    |      ✅     |    ✅    |      ✅      |
+| 14 | `SRLI`    |      ✅     |    ✅    |      ✅      |
+| 15 | `SRAI`    |      ✅     |    ✅    |      ✅      |
+| 16 | `SUB`     |      ✅     |    ✅    |      ✅      |
+| 17 | `SLT`     |      ✅     |    ✅    |      ✅      |
+| 18 | `XOR`     |      ✅     |    ✅    |      ✅      |
+| 19 | `OR`      |      ✅     |    ✅    |      ✅      |
+| 20 | `HALT`    |      ✅     |    ✅    |      ✅      |
 
 ### Observações
 
@@ -66,6 +66,8 @@ A entrega consiste no link do fork do repositório no GitHub, contendo o código
   - Resultados obtidos.
   - Dificuldades encontradas.
   - Conclusão.
+
+- Nosso relatório: https://docs.google.com/document/d/16X_Ha6Pq6P1qCsfzSHnuc0gU2hz7nK7_dUYIh_L8WeM/edit?usp=sharing
 
 O relatório não deve ser extenso, mas deve conter todas as informações necessárias para a avaliação do projeto.
 
