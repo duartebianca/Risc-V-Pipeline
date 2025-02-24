@@ -67,6 +67,8 @@ A entrega consiste no link do fork do repositório no GitHub, contendo o código
   - Dificuldades encontradas.
   - Conclusão.
 
+- Nosso relatório: https://docs.google.com/document/d/16X_Ha6Pq6P1qCsfzSHnuc0gU2hz7nK7_dUYIh_L8WeM/edit?usp=sharing
+
 O relatório não deve ser extenso, mas deve conter todas as informações necessárias para a avaliação do projeto.
 
 ## 📝 Avaliação
