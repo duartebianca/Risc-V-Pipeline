@@ -40,11 +40,12 @@ module datamemory #(
           rd  <= $signed(Dataout[7:0]);
         end
         3'b001: begin //LH
-          raddress <= {23'b0, a[8:1], 1'b0};
-          rd[31:0] <= {{16{Dataout[15]}}, Dataout[15:0]};
+           rd <= $signed(Dataout[15:0]);
         end
         3'b100: begin  //LBU 
-          rd <= Dataout[7:0];
+          raddress <= {23'b0, a};  // Endereçamento correto
+          rd[31:0] <= {24'b0, Dataout[7:0]};  // Zero-extension explícita
+          // se n funcionar, apaga isso e testa rd <= {24'b0,Dataout[7:0]};
         end
         3'b010:  // LW
         rd <= Dataout;
