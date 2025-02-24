@@ -38,20 +38,13 @@ module datamemory #(
       case (Funct3)
         3'b000: begin //LB
           rd  <= $signed(Dataout[7:0]);
-          /*
-          pode funcionar essa variação também
-          Wr <= 4'b0001;
-          rd[31:0] <= {{24{Dataout[7]}}, Dataout[7:0]};
-          raddress[31:0] <= {23'b0, a};
-          */
         end
         3'b001: begin //LH
-           rd <= $signed(Dataout[15:0]);
+           raddress <= {23'b0, a[8:1], 1'b0};
+           rd[31:0] <= {{16{Dataout[15]}}, Dataout[15:0]};
         end
         3'b100: begin  //LBU 
-          raddress <= {23'b0, a};  // Endereçamento correto
-          rd[31:0] <= {24'b0, Dataout[7:0]};  // Zero-extension explícita
-          // se n funcionar, apaga isso e testa rd <= {24'b0,Dataout[7:0]};
+          rd <= Dataout[7:0];
         end
         3'b010:  // LW
         rd <= Dataout;
@@ -62,12 +55,10 @@ module datamemory #(
         3'b000: begin // SB
           Wr = 4'b0001;
           Datain <= wd;
-          //  Datain[7:0] <= wd;
         end
         3'b001: begin // SH
           Wr = 4'b0011;
           Datain <= wd;
-          //  Datain[15:0] <= wd;
         end
         3'b010: begin  // SW
           Wr = 4'b1111;
