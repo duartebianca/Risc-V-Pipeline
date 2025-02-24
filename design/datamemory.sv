@@ -40,7 +40,8 @@ module datamemory #(
           rd  <= $signed(Dataout[7:0]);
         end
         3'b001: begin //LH
-          rd  <= $signed(Dataout[15:0]);
+           raddress <= {23'b0, a[8:1], 1'b0};
+           rd[31:0] <= {{16{Dataout[15]}}, Dataout[15:0]};
         end
         3'b100: begin  //LBU 
           rd <= Dataout[7:0];
